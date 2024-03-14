@@ -6,17 +6,14 @@ class customTitleBar(Frame):
     def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
         self.master = master
-        self.bind("<ButtonPress-1>", self.start_drag)
-        self.bind("<B1-Motion>", self.on_drag)
+def start_drag(event):
+    root._drag_start_x = event.x_root
+    root._drag_start_y = event.y_root
 
-    def start_drag(self, event):
-        self._drag_start_x = event._drag_start_x
-        self._drag_start_y = event._drag_start_y
-
-    def on_drag(self, event):
-        x = self.master.winfo_x() + event.x - self._drag_start_x
-        y = self.master.winfo_y() + event.y - self._drag_start_y
-        self.master.geometry(f"+{x}+{y}")
+def on_drag(event):
+    x = root.winfo_pointerx() - root._drag_start_x
+    y = root.winfo_pointery() - root._drag_start_y
+    root.geometry(f"+{x}+{y}")
 
 root = Tk()
 root.overrideredirect(True)
@@ -41,5 +38,8 @@ maximizeButton = Button(titlebar, image=maximizeImg, borderwidth=0, bg="#363636"
 maximizeButton.pack(side="right")
 minimizeButton = Button(titlebar, image=minimizeImg, borderwidth=0, bg="#363636")
 minimizeButton.pack(side="right")
+
+titlebar.bind("<ButtonPress-1>", start_drag)
+titlebar.bind("<B1-Motion>", on_drag)
 
 root.mainloop()
