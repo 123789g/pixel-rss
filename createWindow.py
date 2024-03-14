@@ -35,8 +35,15 @@ titlebar.pack(side="top", fill="x")
 
 closeButton = Button(titlebar, image=closeImg, command=root.destroy, borderwidth=0, bg="#363636")
 closeButton.pack(side="right")
-maximizeButton = Button(titlebar, image=maximizeImg, borderwidth=0, bg="#363636")
+# ---
+def toggle_maximize():
+    if root.state() == 'zoomed':
+        root.state('normal')
+    else:
+        root.state('zoomed')
+maximizeButton = Button(titlebar, image=maximizeImg, command=lambda: root.state('zoomed'), borderwidth=0, bg="#363636")
 maximizeButton.pack(side="right")
+# --- Iconify doesn't work with override redirect. Working around it by hiding window off screen instead.
 minimizeButton = Button(titlebar, image=minimizeImg, borderwidth=0, bg="#363636")
 minimizeButton.pack(side="right")
 
