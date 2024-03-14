@@ -6,15 +6,15 @@ class customTitleBar(Frame):
     def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
         self.master = master
-        
+
 def start_drag(event):
-    root._drag_start_x = event.x_root
-    root._drag_start_y = event.y_root
+    root._drag_start_x = event.x_root - root.winfo_x()
+    root._drag_start_y = event.y_root - root.winfo_y()
 
 def on_drag(event):
-    x = root.winfo_pointerx() - root._drag_start_x
-    y = root.winfo_pointery() - root._drag_start_y
-    root.geometry(f"+{x}+{y}")
+    new_x = event.x_root - root._drag_start_x
+    new_y = event.y_root - root._drag_start_y
+    root.geometry(f"+{new_x}+{new_y}")
 
 root = Tk()
 root.overrideredirect(True)
