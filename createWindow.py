@@ -7,14 +7,14 @@ class customTitleBar(Frame):
         super().__init__(master, **kwargs)
         self.master = master
 
-def start_drag(event):
+def startDrag(event):
     root._drag_start_x = event.x_root - root.winfo_x()
     root._drag_start_y = event.y_root - root.winfo_y()
 
-def on_drag(event):
-    new_x = event.x_root - root._drag_start_x
-    new_y = event.y_root - root._drag_start_y
-    root.geometry(f"+{new_x}+{new_y}")
+def onDrag(event):
+    x = event.x_root - root._drag_start_x
+    y = event.y_root - root._drag_start_y
+    root.geometry(f"+{x}+{y}")
 
 root = Tk()
 root.overrideredirect(True)
@@ -40,7 +40,8 @@ maximizeButton.pack(side="right")
 minimizeButton = Button(titlebar, image=minimizeImg, borderwidth=0, bg="#363636")
 minimizeButton.pack(side="right")
 
-titlebar.bind("<ButtonPress-1>", start_drag)
-titlebar.bind("<B1-Motion>", on_drag)
+# These are the controls for the mouse.
+titlebar.bind("<ButtonPress-1>", startDrag)
+titlebar.bind("<B1-Motion>", onDrag)
 
 root.mainloop()
