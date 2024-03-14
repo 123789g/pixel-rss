@@ -6,6 +6,7 @@ class customTitleBar(Frame):
     def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
         self.master = master
+        
 def start_drag(event):
     root._drag_start_x = event.x_root
     root._drag_start_y = event.y_root
