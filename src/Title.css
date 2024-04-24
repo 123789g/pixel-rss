@@ -1,6 +1,6 @@
 .titlebar {
     height: 30px;
-    background: #cebb53;
+    background: #2d2e31;
     user-select: none;
     display: flex;
     justify-content: flex-end;
@@ -17,5 +17,5 @@
     height: 30px;
   }
   .titlebar-button:hover {
-    background: #beae4e;
+    background: #202022;
   }
