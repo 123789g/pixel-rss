@@ -3,6 +3,16 @@ import { appWindow } from "@tauri-apps/api/window";
 
 function Title() {
 
+  const minimizeWindow = () => {
+    appWindow.minimize()
+  }
+  const maximizeWindow = () => {
+    appWindow.toggleMaximize()
+  }
+  const closeWindow = () => {
+    appWindow.close()
+  }
+
   return (
     <div className="container">
       <body>
@@ -11,18 +21,18 @@ function Title() {
             <img
               src="https://api.iconify.design/mdi:window-minimize.svg"
               alt="minimize"
-              onClick={appWindow.minimize}
+              onClick={minimizeWindow}
             />
           </div>
           <div className="titlebar-button" id="titlebar-maximize">
             <img
               src="https://api.iconify.design/mdi:window-maximize.svg"
               alt="maximize"
-              onClick={appWindow.toggleMaximize}
+              onClick={maximizeWindow}
             />
           </div>
           <div className="titlebar-button" id="titlebar-close">
-            <img src="https://api.iconify.design/mdi:close.svg" alt="close" onClick={appWindow.close} />
+            <img src="https://api.iconify.design/mdi:close.svg" alt="close" onClick={closeWindow} />
           </div>
         </div>
       </body>
