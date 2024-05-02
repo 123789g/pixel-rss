@@ -3,7 +3,7 @@
     padding: 1vh;
     column-gap: 2%;
   padding-top: 3vh;
-  min-height: 94vh;
+  /* min-height: 94vh; */
   flex: 1 1 auto;
   overflow-y: auto;
 }

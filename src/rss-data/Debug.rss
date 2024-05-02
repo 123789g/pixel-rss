@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Dummy RSS Feed</title>
+    <description>This is a test RSS feed with dummy content.</description>
+    <link>http://example.com</link>
+    <item>
+      <title>Item 1</title>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
+      <pubDate>Sun, 24 Apr 2022 08:00:00 GMT</pubDate>
+      <link>http://example.com/item1</link>
+    </item>
+    <item>
+      <title>Item 2</title>
+      <description>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+      <pubDate>Mon, 25 Apr 2022 08:00:00 GMT</pubDate>
+      <link>http://example.com/item2</link>
+    </item>
+  </channel>
+</rss>
